@@ -1,4 +1,4 @@
-FROM ruby:2.6.3-alpine
+FROM ruby:2.6.3-alpine3.9
 
 LABEL "com.github.actions.name"="Danger"
 LABEL "com.github.actions.description"="Run Danger"
