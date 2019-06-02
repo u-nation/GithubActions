@@ -6,7 +6,7 @@ LABEL "com.github.actions.icon"="alert-triangle"
 LABEL "com.github.actions.color"="yellow"
 LABEL "maintainer"="u-nation <Endooooooo7@gmail.com>"
 
-RUN apk update -q
+RUN apk update && apk upgrade
 
 RUN gem install danger -v '>= 5.10.3'
 RUN gem install danger-checkstyle_format
