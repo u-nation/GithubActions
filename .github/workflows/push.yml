@@ -1,0 +1,17 @@
+name: Create PR from release to master
+on:
+  push:
+    branches:
+      - release
+jobs:
+  gitPrRelease:
+    name: git-pr-release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: git-pr-release
+      uses: u-nation/GithubActions/git-pr-release@master
+      env:
+        GIT_PR_RELEASE_BRANCH_STAGING: release
+        GIT_PR_RELEASE_LABELS: API定義更新
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
