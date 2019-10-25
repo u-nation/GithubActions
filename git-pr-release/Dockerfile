@@ -1,15 +1,7 @@
-FROM ruby:2.6.1-alpine3.9
-
-LABEL "com.github.actions.name"="git-pr-release"
-LABEL "com.github.actions.description"="Run git-pr-release"
-LABEL "com.github.actions.icon"="check-square"
-LABEL "com.github.actions.color"="green"
-
-LABEL "maintainer"="u-nation <Endooooooo7@gmail.com>"
+FROM ruby:2.6.5-alpine3.10
 
 RUN apk add --no-cache git
-RUN gem install git-pr-release
+RUN gem install git-pr-release -v "0.6.0"
 
-ENV GIT_PR_RELEASE_TOKEN=$GITHUB_TOKEN
-
-ENTRYPOINT "git-pr-release"
+ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
